@@ -1,4 +1,4 @@
-package academy.prog;
+package academy.prog.models.DTO;
 
 public class UrlDTO {
     protected String url;

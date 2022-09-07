@@ -1,4 +1,6 @@
-package academy.prog;
+package academy.prog.models.DTO;
+
+import academy.prog.models.DTO.UrlDTO;
 
 public class UrlResultDTO extends UrlDTO {
     protected String shortUrl;

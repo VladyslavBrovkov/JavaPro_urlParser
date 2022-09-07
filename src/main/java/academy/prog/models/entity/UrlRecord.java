@@ -1,6 +1,13 @@
-package academy.prog;
+package academy.prog.models.entity;
+
+import academy.prog.models.DTO.UrlDTO;
+import academy.prog.models.DTO.UrlStatDTO;
 
 import javax.persistence.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 @Entity
@@ -15,13 +22,14 @@ public class UrlRecord {
     @Column(nullable = false)
     private Long count;
 
-    @Temporal(value = TemporalType.TIMESTAMP)
     @Column(nullable = false)
-    private Date lastAccess;
+    private String lastAccessTime;
+
+    private final static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
     public UrlRecord() {
         count = 0L;
-        lastAccess = new Date();
+        lastAccessTime = LocalDateTime.now().format(formatter);
     }
 
     public UrlRecord(String url) {
@@ -57,12 +65,12 @@ public class UrlRecord {
         this.count = count;
     }
 
-    public Date getLastAccess() {
-        return lastAccess;
+    public String getLastAccessTime() {
+        return lastAccessTime;
     }
 
-    public void setLastAccess(Date lastAccess) {
-        this.lastAccess = lastAccess;
+    public void setLastAccessTime(String lastAccessTime) {
+        this.lastAccessTime = lastAccessTime;
     }
 
     public UrlStatDTO toStatDTO() {
@@ -71,7 +79,7 @@ public class UrlRecord {
         result.setUrl(url);
         result.setShortUrl(Long.toString(id));
         result.setRedirects(count);
-        result.setLastAccess(lastAccess);
+        result.setLastAccessTime(lastAccessTime);
 
         return result;
     }

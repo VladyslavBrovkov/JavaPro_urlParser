@@ -1,14 +1,24 @@
-package academy.prog;
+package academy.prog.service;
 
+import academy.prog.models.DTO.UrlDTO;
+import academy.prog.models.entity.UrlRecord;
+import academy.prog.models.DTO.UrlStatDTO;
+import academy.prog.repository.UrlRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @Service
 public class UrlService {
+
+    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
     private final UrlRepository urlRepository;
 
     public UrlService(UrlRepository urlRepository) {
@@ -34,7 +44,7 @@ public class UrlService {
 
         var urlRecord = urlOpt.get();
         urlRecord.setCount(urlRecord.getCount() + 1);
-        urlRecord.setLastAccess(new Date());
+        urlRecord.setLastAccessTime(LocalDateTime.now().format(formatter));
 
         return urlRecord.getUrl();
     }
