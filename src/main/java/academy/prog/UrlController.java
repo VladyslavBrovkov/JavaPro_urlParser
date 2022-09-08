@@ -1,5 +1,9 @@
 package academy.prog;
 
+import academy.prog.models.DTO.UrlDTO;
+import academy.prog.models.DTO.UrlResultDTO;
+import academy.prog.models.DTO.UrlStatDTO;
+import academy.prog.service.UrlService;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
