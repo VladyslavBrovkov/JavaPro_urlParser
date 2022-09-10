@@ -28,12 +28,14 @@ public class UrlService {
     @Transactional
     public long saveUrl(UrlDTO urlDTO) {
         var urlRecord = urlRepository.findByUrl(urlDTO.getUrl());
-        if (urlRecord == null) {
+        if (urlRecord == null && !urlDTO.getUrl().isEmpty()) {
             urlRecord = UrlRecord.of(urlDTO);
             urlRepository.save(urlRecord);
+            return urlRecord.getId();
+        } else {
+            return -1;
         }
 
-        return urlRecord.getId();
     }
 
     @Transactional

@@ -1,0 +1,38 @@
+<html>
+<head>
+    <title>Login Page</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+    <script src="/js/postshorten.js"></script>
+    <script src="/js/getbyid.js"></script>
+</head>
+<body>
+<div class="wrapper fadeInDown">
+    <h2>
+        <div id="postResultDiv" align="center"></div>
+    </h2>
+    <h2>
+        <div id="getResultDiv" align="center">
+            <ul class="list-group">
+            </ul>
+        </div>
+    </h2>
+    <h1>Welcome to URL-parser APP</h1>
+    <div>
+        <form id="parseUrl">
+            <input type="text" id="longUrl" name="longUrl" placeholder="Enter long URL">
+            <button type="submit" type="button" class="btn btn-primary" name="submitUrl">Parse URL</button>
+        </form>
+        <form id="getUrl">
+            <input type="text" id="urlId" name="urlId" placeholder="Enter URL id">
+            <button type="submit" type="button" class="btn btn-primary" name="submitId">Get URL</button>
+        </form>
+        <p>Click to go to Admin Page: <a href="/admin">GO, I AM ADMIN</a></p>
+        <p>Click to logout from App: <a href="/perform_logout">LOGOUT</a></p>
+    </div>
+</div>
+</body>
+</html>
