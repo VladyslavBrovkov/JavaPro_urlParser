@@ -18,7 +18,7 @@ $(document).ready(
                 success: function (result) {
                     if (result.status == "success") {
                         $("#postResultDiv").html(
-                            "Url Added Successfully!" + "</p>");
+                            "Url with id = " + result.data + " Added Successfully!" + "</p>");
                     } else if (result.status == "duplicate") {
                         $("#postResultDiv").html(
                             "Duplicate or Empty Value" + "</p>");

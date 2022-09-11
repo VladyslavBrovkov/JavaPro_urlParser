@@ -25,10 +25,11 @@ public class UrlController {
 
     @PostMapping("/shorten")
     public ResponseEntity<Object> shorten(@RequestBody UrlDTO urlDTO) {
-        if (urlService.saveUrl(urlDTO) != -1) {
-            return new ResponseEntity<>(new ServiceResponse<>("success", urlDTO), HttpStatus.OK);
+        long id = urlService.saveUrl(urlDTO);
+        if (id != -1) {
+            return new ResponseEntity<>(new ServiceResponse<>("success", id), HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(new ServiceResponse<>("duplicate", urlDTO), HttpStatus.OK);
+            return new ResponseEntity<>(new ServiceResponse<>("duplicate", id), HttpStatus.OK);
         }
     }
 
